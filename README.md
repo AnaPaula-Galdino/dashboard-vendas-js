@@ -6,8 +6,6 @@ categoria que atualiza tudo em tempo real. É o meu lado front-end / visualizaç
 
 🔗 **[Ver o dashboard ao vivo](https://anapaula-galdino.github.io/dashboard-vendas-js/)**
 
-![Preview do dashboard](imagens/preview.png)
-
 ## O que ele mostra
 
 - **KPIs:** faturamento, número de pedidos, ticket médio e categorias.
@@ -38,7 +36,6 @@ dashboard-vendas-js/
 ├── index.html      # estrutura + estilos
 ├── app.js          # lógica: agrega os dados e desenha os gráficos
 ├── data.js         # base de pedidos (dados de demonstração)
-├── imagens/preview.png
 └── README.md
 ```
 
