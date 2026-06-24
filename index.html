@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard de Vendas — Ana Galdino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b0f17; --card:#141b2b; --border:#243047; --text:#e7ecf5; --muted:#95a3bd;
+    --azul:#1f4e79; --azul2:#2e6da4; --azul3:#5b9bd5; --azul4:#7fb0d8; --azul5:#a6c8e0; --destaque:#4fd1c5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;}
+  header{padding:24px 28px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;
+         align-items:center;justify-content:space-between;gap:16px;}
+  header h1{margin:0;font-size:1.4rem;letter-spacing:-0.01em;}
+  header p{margin:4px 0 0;color:var(--muted);font-size:.9rem;}
+  .filtro{display:flex;align-items:center;gap:10px;}
+  .filtro label{color:var(--muted);font-size:.88rem;}
+  select{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:8px;
+         padding:9px 14px;font-size:.92rem;font-family:inherit;cursor:pointer;}
+  main{padding:24px 28px;max-width:1200px;margin:0 auto;}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px;}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
+  .kpi .label{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;}
+  .kpi .valor{font-size:1.7rem;font-weight:700;margin-top:6px;
+              background:linear-gradient(120deg,#4fd1c5,#7c9cff);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .painel{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
+  .painel h3{margin:0 0 14px;font-size:1rem;font-weight:600;}
+  .painel.full{grid-column:1 / -1;}
+  canvas{max-height:300px;}
+  footer{padding:20px 28px;border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;text-align:center;}
+  footer a{color:var(--destaque);text-decoration:none;}
+  @media(max-width:760px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Dashboard de Vendas</h1>
+      <p>Painel interativo construído com JavaScript e Chart.js</p>
+    </div>
+    <div class="filtro">
+      <label for="cat">Categoria:</label>
+      <select id="cat"><option value="todas">Todas</option></select>
+    </div>
+  </header>
+
+  <main>
+    <section class="kpis" id="kpis"></section>
+    <section class="grid">
+      <div class="painel full"><h3>Faturamento por mês</h3><canvas id="chartMensal"></canvas></div>
+      <div class="painel"><h3>Faturamento por categoria</h3><canvas id="chartCategoria"></canvas></div>
+      <div class="painel"><h3>Formas de pagamento</h3><canvas id="chartPagamento"></canvas></div>
+      <div class="painel full"><h3>Top 8 produtos por faturamento</h3><canvas id="chartProdutos"></canvas></div>
+    </section>
+  </main>
+
+  <footer>
+    Feito por <strong>Ana Paula Galdino</strong> ·
+    <a href="https://github.com/AnaPaula-Galdino" target="_blank" rel="noopener">GitHub</a> ·
+    <a href="https://linkedin.com/in/galdinoana/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
